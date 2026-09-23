@@ -93,7 +93,12 @@ public class VendaDia {
      * @return TRUE caso este dia tenha sido melhor, FALSE caso contrário.
      */
     public boolean melhorQue(VendaDia outroDia){
-        //TODO
+        boolean melhor = false;
+        double faturamentoLiqHoje = this.faturamento() - this.valorImpostos();
+        double faturamentoLiqOutroDia = this.faturamento() - this.valorImpostos();
+        if (faturamentoLiqHoje > faturamentoLiqOutroDia) {
+            melhor = true;
+        }
         return false;
     }
 
@@ -102,7 +107,19 @@ public class VendaDia {
      * @return Uma string de uma única palavra indicando a classificação deste dia.
      */
     public String classificacao(){
-        //TODO
+        int liquidoStr = Integer.parseInt(String.valueOf(this.faturamento() - this.valorImpostos()));
+        if (faturamento() >= 1500){
+            classificacao = "ótimo";
+        }else if (faturamento() >= 1000){
+            classificacao = "bom";
+        }else if (faturamento() >= 400){
+            classificacao = "regular";
+        }else if (faturamento() >= 100){
+            classificacao = "ruim";
+        }else{
+            classificacao = "péssimo";
+        }
+
         return "";
     }
 
